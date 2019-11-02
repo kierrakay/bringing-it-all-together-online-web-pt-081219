@@ -33,7 +33,7 @@ class Dog
     VALUES (?, ?)
     SQL
     DB[:conn].execute(sql,self.name, self.breed) #this creates the entry
-   @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs").flatten
+   @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs").first.first
   end
   
 end
