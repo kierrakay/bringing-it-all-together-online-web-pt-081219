@@ -41,3 +41,4 @@ class Dog
   Dog.new(id: [0], name: [1], breed: [2])
   end
 end
+end
