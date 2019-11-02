@@ -30,15 +30,15 @@ class Dog
   end
   
  def save 
-   if self.id
-     self.update
-   else
-    sql = <<-SQL 
-    INSERT INTO dogs (name, breed)
-    VALUES (?, ?)
-    SQL
-    DB[:conn].execute(sql,self.name, self.breed) #this creates the entry
-  Dog.new(id: [0], name: [1], breed: [2])
-  end
-end
+#   if self.id
+#     self.update
+#   else
+#     sql = <<-SQL 
+#     INSERT INTO dogs (name, breed)
+#     VALUES (?, ?)
+#     SQL
+#     DB[:conn].execute(sql,self.name, self.breed) #this creates the entry
+#   Dog.new(id: [0], name: [1], breed: [2])
+#   end
+# end
 end
