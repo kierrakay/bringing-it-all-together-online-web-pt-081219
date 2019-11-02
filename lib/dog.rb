@@ -34,6 +34,6 @@ class Dog
     VALUES (?, ?)
     SQL
     DB[:conn].execute(sql,self.name, self.breed) #this creates the entry
-  Dogs.new(id: [0], name: [1], breed: [2])
+  Dog.new(id: [0], name: [1], breed: [2])
   end
 end
