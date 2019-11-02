@@ -41,4 +41,25 @@ class Dog
 #   Dog.new(id: [0], name: [1], breed: [2])
 #   end
 # end
+     if self.id
+         self.update
+      else
+         sql = <<-SQL
+            INSERT INTO dogs (name, breed)
+            values (?, ?)
+         SQL
+         DB[:conn].execute(sql,self.name,self.breed)
+         @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
+      end
+      self
+   end
+
+
+
+
+
+
+
+
+
 end
