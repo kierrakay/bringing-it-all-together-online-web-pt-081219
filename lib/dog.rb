@@ -1,8 +1,7 @@
 require 'pry'
 class Dog 
   
-  attr_accessor :name, :breed
-  attr_reader  :id
+  attr_accessor :id, :name, :breed
   
   def initialize (id: nil , name:, breed:)
     @id = id 
@@ -30,24 +29,11 @@ class Dog
   end
   
  def save 
-       if self.id 
-      self.update
-    else
-      sql = <<-SQL
-        INSERT INTO dogs (name, breed) 
-        VALUES (?, ?)
-      SQL
-
-      DB[:conn].execute(sql, self.name, self.breed)
-      @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
-    end
+    sql = <<-SQL 
+    INSERT INTO dogs (name, breed)
+    VALUES (?, ?)
+    SQL
+    DB[:conn].execute(sql,self.name, self.breed) #this creates the entry
+  Dog.new(id: [0], name: [1], breed: [2])
   end
-    
-  
-  
-  
-  
-  
-  
-  
 end
